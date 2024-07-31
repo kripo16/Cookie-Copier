@@ -4,54 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Cookie Copier</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="src/icon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
-        <button id="copyCookies">Copy Cookies</button>
-        <button id="openNetflix">Open Netflix</button>
+        <div class="video-container" id="videoContainer">
+            <video id="tutorialVideo" width="600" controls style="display: none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="button-container" id="buttonContainer">
+            <button id="copyCookies" class="btn" data-tooltip="Copy cookies to clipboard">Copy Cookies</button>
+            <button id="addExtension" class="btn" style="display: none;" data-tooltip="Add browser extension">Add Extension</button>
+            <button id="openNetflix" class="btn" style="display: none;" data-tooltip="Open Netflix">Open Netflix</button>
+        </div>
+        <div class="progress-container" id="progressContainer" style="display: none;">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
     </div>
-
-    <script>
-        // Replace this string with the actual cookies data you want to copy
-        const cookies = `
-.netflix.com	True	/	True	0	nfvdid	BQFmAAEBEEIUvktQUZqH6N_ZLqRAGrJgIo6U2-X7KSNzVKHA93G47Ep6QzxBPc5sgtFPYAlUOm74sMPPX1lyvFyIL7GdRFrchziONHA0lWYVZUlnVakOtB1oMvHyExL3YRng2aPfb_cysA6hAbgtMm2dVWzfMqYP
-.netflix.com	True	/	True	0	SecureNetflixId	v%3D2%26mac%3DAQEAEQABABQWw5szwN7UEd1EWflVCwOys0m6pyNxOY8.%26dt%3D1717858771844
-.netflix.com	True	/	True	0	NetflixId	v%3D2%26ct%3DBQAOAAEBEC93QY8zxpf48Rvx0anOlOWB0LflI5fodRF7ns-rUy4Y_s5uDHvo_YVkmPQNWAfvCRUVXsT_9CjbmOVlXZ5RwOBosVf_lZPESomAl0195WfopTL7ALIzJWDLyoi-yGYVJVnElpahEPBwYG6DaazNwi87YZTEHvGHWZdpF0MHd3ZJeyZ7p-6kDwXJq0RgaVzOPb1UzdfXtctRxW4k7cUwfruOA3aeWPEojC7WVv-39z0bLOyUqdP091Ijs7ClLN3Nnvq1RORyL0PbffDnbbDL310_cPWuXQHnr1kxPD29uC5zbGnslRdU6tjoaNWNgFoqvSBqdYb_sulbYg3HXrE8p1WcyTRM_IK_6PbIgAmmshBhO5ef70kApK0wR8xojY4pxwavtcJE9lBdLwxbBaRHuz9FTJ390VijIkARUhpfHsJhyGli-NUg85wksdQeP9uk5oAiyo6ckRggM63wZnqKDpDtw4e9hzgPM7qBxR7YqGhLiZVaTHqwz2u2e5kKjHqxnJkm5SrtYby6tG-J7Vq71E_XO7QKJ0r8h37HRLgn2OQ5UJJELsM8bPGtuYfsW6vsZgdRXa3zvQa1t-mMHQ4YHpbntRhlEwH8VCOrDwKH5sP96Z-PlBNtZi1ad0RHv9TU93Ph%26bt%3Ddbl%26ch%3DAQEAEAABABQ9Ez9C9pA2CRcxIIUk5Im3_M9Qpu5-ITQ.%26mac%3DAQEAEAABABR3REM3iOiKfmzYb8t_v_OFB1o2AdenG90.
-
-`;
-
-        document.getElementById('copyCookies').addEventListener('click', function() {
-            navigator.clipboard.writeText(cookies)
-                .then(() => {
-                    alert('Cookies copied to clipboard!');
-                })
-                .catch(err => {
-                    console.error('Failed to copy text: ', err);
-                });
-        });
-
-        document.getElementById('openNetflix').addEventListener('click', function() {
-            window.open('https://www.netflix.com/login', '_blank');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

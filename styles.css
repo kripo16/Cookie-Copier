@@ -1,0 +1,141 @@
+:root {
+    --primary-color: #ff7f50; /* Coral for buttons */
+    --hover-color: #e67300; /* Darker Orange */
+    --active-color: #cc5800; /* Even darker orange for active state */
+    --background-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
+    --button-radius: 5px;
+    --button-padding: 10px 20px;
+    --button-font-size: 16px;
+    --button-transition: background-color 0.3s ease, transform 0.3s ease;
+    --container-animation: fadeIn 1s ease-in-out;
+}
+
+body {
+    background: url('src/image.gif') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: var(--container-animation);
+}
+
+.video-container {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+video:hover {
+    transform: scale(1.02);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+button {
+    margin: 10px;
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    cursor: pointer;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--button-radius);
+    transition: var(--button-transition);
+    position: relative;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background-color: var(--active-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn {
+    min-width: 150px;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 5px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes backgroundMove {
+    from { background-position: center; }
+    to { background-position: top left; }
+}
