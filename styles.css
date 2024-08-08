@@ -1,38 +1,63 @@
+/* Classic Styling */
 :root {
-    --primary-color: #ff7f50; /* Coral for buttons */
-    --hover-color: #e67300; /* Darker Orange */
-    --active-color: #cc5800; /* Even darker orange for active state */
-    --background-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
-    --button-radius: 5px;
-    --button-padding: 10px 20px;
-    --button-font-size: 16px;
+    --primary-color: #8b5e3c; /* Brownish color for a vintage feel */
+    --secondary-color: #f4f4f4; /* Light beige */
+    --highlight-color: #d07e60; /* Soft coral for accents */
+    --button-hover-color: #6b8e23; /* Muted Olive Green */
+    --button-active-color: #d1b28f; /* Classic Beige */
+    --button-radius: 8px;
+    --button-padding: 12px 24px;
+    --button-font-size: 18px;
     --button-transition: background-color 0.3s ease, transform 0.3s ease;
-    --container-animation: fadeIn 1s ease-in-out;
+    --container-width: 90%;
+    --container-padding: 20px;
+    --container-initial-height: 150px; /* Initial height */
+    --container-expanded-height: 700px; /* Expanded height */
+    --title-margin-bottom: 0px; /* Margin between title and button */
 }
 
 body {
-    background: url('src/image.gif') no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
+    background-color: #f7f1e1; /* Light background color for contrast */
+    font-family: 'Georgia', serif; /* Classic serif font */
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    scroll-behavior: smooth;
-    color: white;
+    color: #333; /* Darker text color for readability */
+    overflow: hidden; /* Prevent scrollbar from showing */
 }
 
 .container {
     text-align: center;
-    width: 80%;
-    max-width: 1200px;
+    width: var(--container-width);
+    max-width: 1000px;
+    background: var(--secondary-color);
+    border: 1px solid #ccc;
+    border-radius: var(--button-radius);
+    padding: var(--container-padding);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure positioning for buttons */
+    box-sizing: border-box; /* Include padding in width */
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically */
     align-items: center;
-    justify-content: center;
-    animation: var(--container-animation);
+    height: var(--container-initial-height); /* Set initial height */
+    overflow: hidden; /* Hide overflowing content */
+    transition: height 0.5s ease; /* Smooth transition for height expansion */
+}
+
+.container.expanded {
+    height: var(--container-expanded-height); /* Height when expanded */
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 0 0 var(--title-margin-bottom); /* Margin for spacing */
+    padding: 0 10px; /* Padding to ensure visibility */
+    font-size: 40px;
 }
 
 .video-container {
@@ -46,39 +71,39 @@ body {
 video {
     width: 100%;
     max-width: 900px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-video:hover {
-    transform: scale(1.02);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row; /* Ensure buttons are side by side */
+    position: relative;
     width: 100%;
+    margin-top: 0px; /* Space between buttons and other elements */
 }
 
 button {
-    margin: 10px;
+    margin: 0 15px; /* Horizontal margin for spacing between buttons */
     padding: var(--button-padding);
     font-size: var(--button-font-size);
     cursor: pointer;
-    border: none;
-    background-color: var(--primary-color);
-    color: white;
+    border: 1px solid var(--primary-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     border-radius: var(--button-radius);
     transition: var(--button-transition);
     position: relative;
 }
 
 button:hover {
-    background-color: var(--hover-color);
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: scale(1.05);
 }
 
 button:focus {
@@ -86,19 +111,15 @@ button:focus {
 }
 
 button:active {
-    background-color: var(--active-color);
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: var(--button-active-color);
 }
-
 button::after {
-    content: attr(data-tooltip);
     position: absolute;
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
-    color: white;
+    color: #fff;
     padding: 5px;
     border-radius: 5px;
     font-size: 12px;
@@ -114,28 +135,42 @@ button:hover::after {
 }
 
 .btn {
-    min-width: 150px;
+    min-width: 180px;
 }
 
 .progress-container {
     width: 100%;
-    background-color: #ddd;
-    margin-bottom: 10px;
+    background-color: #eee;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .progress-bar {
     width: 0%;
-    height: 5px;
-    background-color: var(--primary-color);
+    height: 8px;
+    background-color: var(--highlight-color);
     transition: width 0.3s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
-@keyframes backgroundMove {
-    from { background-position: center; }
-    to { background-position: top left; }
+.popup-content {
+    text-align: center;
+}
+
+.popup button {
+    display: block;
+    margin: 10px auto;
 }
