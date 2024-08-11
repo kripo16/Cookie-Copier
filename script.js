@@ -1,6 +1,12 @@
 // Define the cookies for Prime Video and Netflix
 const primeVideoCookies = `cookies1`; // Replace with actual Prime Video cookies
-const netflixCookies = `cookies2`; // Replace with actual Netflix cookies
+const netflixCookies = `
+.netflix.com	TRUE	/	TRUE	1693215879	nfvdid	BQFmAAEBEBCIqauCCpHWwD_IgD1m7WNgcE121VnglfZNz3cbMlHQiSwWb9rrGzF8BTGieRBO2GVkR1YQfXMHFiKUzK-F0G9mvUaO-Rn5qEPlhvZ6ZgpEkltp4iVR7DkjpOcthrAUJzYV2OdStKeCNEEFNKOmLdyJ
+.netflix.com	TRUE	/	TRUE	1693922104	memclid	286f629e-34bc-4237-b08e-861d951eb161
+.netflix.com	FALSE	/	FALSE	1707342942	NetflixId	ct%3DBQAOAAEBEOYKWMelUYi7amgRHkIOtZyCYFonqnDfrE4GkG8YGqycAqD-0kz2CgGE-F4V_GseIqzuCbJCzbfNFhiCz2WUTzoh59F7jramAiuBvbgc11ZmERRpOdLxZAc5n6kiJn-1StbzO1zHas-xxrNvITwmQK5JrMuNcGCC7gd_xtOncGQ1e8ts6C4miWEbsFvqwFN-b3SMyOsdo4kwMa99uWk-h3KYSp4eoN8Tk94ACy6DD-xHV9mn5WyGii8QRvX1VbS6io7esdHyEZZmn9ZJKT373MEIoHVLmNW4d0_eLLKYlt1NFBwDgxsSVKde-zAAPA97thRU_9VFk1wC8eMmBzNM_jVWigyvaVbiLA7KtSOh8Tp7r8Z2NWza1pnhtqi0WLqC3yoL1SF7GseTt0vqUmSidc7Io6whbpRGLCdtVRr1fL2IT2cl5IpoW-v2VWV2LVTOxfhczDQzf2RNnpQApZIjdZBNSkG2zxfUpL_cWd3yjBVplL3Yx62F9aFsmy9f7cm875MxT2Z1ic4k9qyB4NnCV5aE3sXkp6WsjM3xm2gF6P5k_haPdfM45ScT9tyEAvtGTKB_nlRuLPOqoi3Wp_DVkP-JGRf2mow-S5RnNNnifYu6w7fSIqK-kRlHbI64pjmePj3xzfIGMDMCxOA0q4FR2_Wap1ADBAANQXz6mM5SBc-T-FsUZ3UC4vVJ00qlcLHfE1HTXI9-Yj1WRm8KkVbD07_kj5oxgN66HUx59SwdgnUIXH_hq8iovjAHp9Fhye_-J9WiB97Y_AtoIY7AF8gMaswPmgxyu2ZD0RlXTi902JGgTdWO0MhmMEHEehoiwTnIUtDO%26bt%3Ddbl%26ch%3DAQEAEAABABRKnQv5y6LKEL1TtjUyRKSToKTntJ3lwfE.%26v%3D2%26mac%3DAQEAEAABABT_6RVU2YuascFh1xxvhq5EDJpQXWRg3V8.
+.netflix.com	FALSE	/	FALSE	1707342942	SecureNetflixId	v%3D2%26mac%3DAQEAEQABABRzKQJ2Wt_orpmT6rsiV2fYkj6BrOx1wns.%26dt%3D1691798140776
+.netflix.com	TRUE	/	TRUE	1699566944	pas	%7B%22supplementals%22%3A%7B%22muted%22%3Afalse%7D%7D
+`; // Replace with actual Netflix cookies
 
 let selectedWebsite = ''; // Track the selected website
 
